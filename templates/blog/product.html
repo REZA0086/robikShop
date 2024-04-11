@@ -1,0 +1,124 @@
+{% extends 'parent/base.html' %}
+
+{% block title %}محصول{% endblock %}
+<!-- Header -->
+
+<!-- /Header -->
+{% block content %}
+    <section class="inner-page" id="product-page">
+        <div class="container-fluid" id="page-hero">
+            <div class="row">
+                <div class="col-12">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 px-0">
+                                <h1>{{ product.name }}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-12 col-lg-5 px-lg-0">
+                                <div class="swiper-container gallery-top">
+                                    <!-- Additional required wrapper -->
+                                    <ul class="swiper-wrapper">
+                                        <!-- Slides -->
+                                        <li id="1" class="swiper-slide">
+                                            <a href="{{ product.image.url }}" itemprop="contentUrl"
+                                               data-size="900x710">
+                                                <img src="{{ product.image.url }}" itemprop="thumbnail"
+                                                     alt="گوشی موبایل سامسونگ مدل Galaxy A21s"/>
+                                            </a>
+                                        </li>
+
+                                        <!-- /Slides -->
+                                    </ul>
+                                    <!-- If we need navigation buttons -->
+
+                                </div>
+
+                                <!-- Swiper -->
+
+
+                                <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="pswp__bg"></div>
+                                    <div class="pswp__scroll-wrap">
+                                        <div class="pswp__container">
+                                            <div class="pswp__item"></div>
+                                            <div class="pswp__item"></div>
+                                            <div class="pswp__item"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-7 mt-5 mt-lg-0 pl-lg-0" id="product-intro">
+                                <a href="./product.html">
+                                    <h1>{{ product.name }}</h1>
+                                </a>
+
+                                <div class="encode4365gbf265g43d-container py-2">
+
+                                    <span class="encode4365gbf265g43d">{{ product.price }} <span>تومان</span></span>
+                                    <div style="color: red">{{ product.discount }}%</div>
+                                </div>
+                                <p>{{ product.description }}</p>
+                                <hr>
+                                <div>
+                                    <h4>خصوصیات:</h4>
+                                    <div style="display: flex;justify-content: space-between;width: 200px">
+                                        {% for feature in features %}
+                                            <p>{{ feature.value }}</p>
+                                        {% endfor %}
+                                    </div>
+                                    <h4>دسته بندی:</h4>
+                                    <div style="display: flex;justify-content: space-between;width: 200px">
+                                            <p>{{ product.category }}</p>
+                                    </div>
+
+                                </div>
+                                <div class="cta-container pt-3 pt-md-5">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <a href="./cart.html">
+                                                <div class="btn btn-success px-4 px-lg-2 px-xl-4 btn-add-to-basket"><i
+                                                        class="fa fa-shopping-cart"></i> افزودن به سبد خرید
+                                                </div>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Share Links -->
+                                <!-- Share Links -->
+                            </div>
+
+                            <!-- Nav Tabs -->
+
+                        </div>
+                        <h4>گالری محصول:</h4>
+                        <br>
+                        <div style="display: flex">
+                            <div style="display: flex">
+                                {% for gallery in gallery %}
+                                    <div style="width: 200px;display: flex"><img src="{{ gallery.image.url }}" alt="">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+{% endblock %}
+
+

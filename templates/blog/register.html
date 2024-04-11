@@ -1,0 +1,43 @@
+{% extends 'parent/base.html' %}
+
+{% block title %}ثبت نام{% endblock %}
+{% block content %}
+    <section class="inner-page" id="contact-page">
+        <form class="user-form" method="post" action="{% url 'account:register' %}" >
+             {% csrf_token %}
+            <div class="container py-2 py-md-5">
+                <div class="row">
+                    <div class="col-12 col-sm-10 offset-sm-1">
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-12 col-lg-5 text-center">
+                                    <img src="{{ media_url }}images/login.png" alt="">
+                                </div>
+                                <div class="col-12 col-lg-7 pt-5 pt-md-0 align-self-center">
+                                    <div class="title">عضویت در روبیک مارکت</div>
+                                    <p>با ورود به ناحیه کاربری خود از همه امکانات سایت بهره مند شوید.</p>
+                                    <div class="form-group">
+                                        
+                                        {{ form.username }}
+                                    </div>
+                                    <div class="form-group">
+                                        
+                                        {{form.email}}
+                                    </div>
+                                    <div class="form-group">
+                                        
+                                        {{ form.password }}
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <button type="submit">ثبت نام</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+{% endblock %}
